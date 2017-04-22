@@ -3,13 +3,50 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Some of My Favorite Things</title>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Open+Sans:400,400i,700" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <title>These Are A Few of My Favorite Things</title>
   </head>
   <body>
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-  <script src="js/script.js"></script>  
+    <div class="body-container">
+      <header class="banner" role="banner">
+        <div class="profile-container flex">
+          <img  class="profile-pic" src="images/Sheryl.jpg" alt="profile photo of Sheryl Darroch">
+          <span class="profile-intro">Hi, I'm Sheryl Darroch. Looking for some great music or a good book to curl up with? Feel free to take a look around.</span>
+        </div>
+        <h1 class="heading">These Are a Few of My Favorite Things . . .</h1>
+      </header>
+      <div class="main-container" role="main">
+        <div class="content">
+          <h2 class="title">Music</h2>
+          <span class="sub-title" id="sub-title-m">Sort the albums by . . .</span>
+          <ul class="selectors flex">
+            <li aria-labelledby="sub-title-m"><button></button></li>
+            <li aria-labelledby="sub-title-m"><button></button></li>
+            <li aria-labelledby="sub-title-m"><button></button></li>            
+          </ul>
+          <div class="photos flex" id="photos">
+          </div>
+        </div> <!-- end .content -->
+        <div class="content">
+          <h2 class="title">Books</h2>
+          <span class="sub-title" id="sub-title-b">Sort the books by . . .</span>
+          <ul class="selectors flex">
+            <li aria-labelledby="sub-title-b"><button></button></li>
+            <li aria-labelledby="sub-title-b"><button></button></li>
+            <li aria-labelledby="sub-title-b"><button></button></li>            
+          </ul> 
+          <div class="photos flex" id="photos">
+          </div>
+        </div> <!-- end .content -->
+
+      </div> <!-- end .main-container -->
+    </div> <!-- end .body-container -->
+    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+    <script src="js/script.js"></script>  
   </body>
-  <footer>
+  <footer role="contentinfo">
+    
   </footer>
 </html>

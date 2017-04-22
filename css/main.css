@@ -1,0 +1,158 @@
+/*** Main Page Styling ***/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color:  #faeed1;
+  color: #874c62;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 1.5em;
+  color: #c98474;
+  text-shadow: 0.063em 0.063em 0.125em #874c62;
+}
+
+/*** Banner Styling ***/
+.banner {
+  background-color: #cde5e1;
+  border-bottom: solid 0.313em #c98474;
+}
+
+.profile-container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 5em;
+  min-width: 5em;
+  height: 5em;
+  min-height: 5em;
+  border-radius: 50%;
+  border: solid 0.063em #874c62;
+  box-shadow: 0.25em 0.25em 0.125em #874c62;
+  margin: 0.625em;
+}
+
+.profile-intro {
+  font-size: 0.75em;
+  margin: 0.625em;
+}
+
+.heading {
+  margin-left: 0.625em;
+}
+
+/**** Gallery Styling****/
+
+.content {
+  padding: 0.625em;
+}
+
+.selectors li {
+  list-style: none;
+  list-style-position: inside;
+}
+
+.selectors li button { 
+  margin: 0.313em;
+  padding: 0.625em;
+  background-color: #a7d2cb;
+  color: #874c62;
+  font-size: .75em;
+  text-shadow: 0.125em 0.125em 0.125em #c98474;
+  border-radius: 0.313em;
+  border: solid 0.125em #874c62;
+  box-shadow: 0.25em 0.25em 0.125em #999;
+}
+
+.photos {
+  background-color: #eee;
+  border: solid 0.125em #874c62;
+  box-shadow: 0.25em 0.25em 0.125em #999;
+  border-radius: 0.313em;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.625em;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  h1, h2 {
+    font-size: 2.5em;
+  }
+    
+  .profile-pic {
+    width: 12em;
+    height: 12em;
+    max-width: 12em;
+    max-height: 12em;
+    margin-top: 2.25em;
+    margin-left: 2.25em;
+  }
+  
+  .profile-intro {
+    margin: 0.938em;
+    font-size: 1em;
+    max-width: 31.25em;
+  }
+  
+  .content {
+    padding: 0.938em;
+    text-align: center;
+  }
+  
+  .title {
+    margin: 0;
+    padding-bottom: 0.313em;
+  }
+
+  .selectors {
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .photos {
+    margin-left: auto;
+    margin-right: auto;
+  }
+    
+  
+
+} /**** end 768 media query****/
+
+
+@media screen and (min-width: 1024px) {
+  .banner {
+    border: solid 0.313em #c98474;
+  }
+  
+  .profile-container {
+    justify-content: flex-start;
+  }
+  
+  .profile-intro {
+    font-size: 1.5em;
+  }
+  
+  .heading {
+    font-size: 3.5em;
+  }
+} /*** end 1024 media query****/

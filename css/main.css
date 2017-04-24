@@ -63,6 +63,12 @@ h1, h2 {
   padding: 0.625em;
 }
 
+.selectors {
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
 .selectors li {
   list-style: none;
   list-style-position: inside;
@@ -90,6 +96,7 @@ h1, h2 {
   align-items: center;
   flex-wrap: wrap;
   padding: 0.625em;
+  display: none;
 }
 
 
@@ -125,8 +132,17 @@ h1, h2 {
   }
 
   .selectors {
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
+  }
+  
+  .selectors li {
+    font-size: 1.25em;
+  }
+  
+  .selectors li button {
+    padding: 1em;
   }
   
   .photos {

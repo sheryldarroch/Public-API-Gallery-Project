@@ -12,7 +12,10 @@
       <header class="banner" role="banner">
         <div class="profile-container flex">
           <img  class="profile-pic" src="images/Sheryl.jpg" alt="profile photo of Sheryl Darroch">
-          <span class="profile-intro">Hi, I'm Sheryl Darroch. Looking for some great music or a good book to curl up with? Feel free to take a look around.</span>
+          <div class="profile-intro">
+            <p>Hi, I'm Sheryl Darroch. Looking for some great music or a good book to curl up with?</p>
+            <p>Feel free to take a look around.</p>
+          </div>
         </div>
         <h1 class="heading">These Are a Few of My Favorite Things . . .</h1>
       </header>
@@ -20,13 +23,15 @@
         <div class="content">
           <h2 class="title">Music</h2>
           <span class="sub-title" id="sub-title-m">Choose one of my favorite artists to see a list of their albums.</span>
-          <ul class="selectors selectors-m-1 flex">
+          <ul class="selectors selectors-m flex">
             <li aria-labelledby="sub-title-m" id="btn-m-1"><button>Casting Crowns</button></li>
             <li aria-labelledby="sub-title-m" id="btn-m-2"><button>Addison Road</button></li>
-            <li aria-labelledby="sub-title-m" id="btn-m-3"><button>Toby Mac</button></li>            
+            <li aria-labelledby="sub-title-m" id="btn-m-3"><button>Third Day</button></li>            
           </ul>
           <div class="photos flex" id="photos-m">
           </div> <!-- end #photos-m -->
+          <div class="lightbox" id="lightbox-m">
+          </div> <!-- end #lightbox-m -->
         </div> <!-- end .content -->
         <div class="content">
           <h2 class="title">Books</h2>
@@ -38,12 +43,17 @@
           </ul> 
           <div class="photos flex" id="photos-b">
           </div> <!-- end #photos-b -->
+          <div class="lightbox" id="lightbox-b">
+          </div> <!-- end #lightbox-b -->          
         </div> <!-- end .content -->
 
       </div> <!-- end .main-container -->
     </div> <!-- end .body-container -->
     
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <script src="js/script.js"></script>  
   </body>
   <footer role="contentinfo">

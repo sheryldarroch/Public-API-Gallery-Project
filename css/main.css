@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color:  #faeed1;
@@ -22,14 +26,13 @@ a {
 h1, h2 {
   font-family: 'Kaushan Script', cursive;
   font-size: 1.5em;
-  color: #c98474;
-  text-shadow: 0.063em 0.063em 0.125em #874c62;
+  color: #a7d2cb;
+/*  text-shadow: 0.063em 0.063em 0.125em #874c62;*/
 }
 
 /*** Banner Styling ***/
 .banner {
-  background-color: #cde5e1;
-  border-bottom: solid 0.313em #c98474;
+  border-bottom: solid 0.313em #874c62;
 }
 
 .profile-container {
@@ -44,7 +47,7 @@ h1, h2 {
   min-height: 5em;
   border-radius: 50%;
   border: solid 0.063em #874c62;
-  box-shadow: 0.25em 0.25em 0.125em #874c62;
+  box-shadow: 0.125em 0.125em 0.125em 0.125em rgba(135, 76, 98, 0.5);
   margin: 0.625em;
 }
 
@@ -80,14 +83,26 @@ h1, h2 {
   background-color: #a7d2cb;
   color: #874c62;
   font-size: .75em;
-  text-shadow: 0.125em 0.125em 0.125em #c98474;
+  font-weight: bold;
   border-radius: 0.313em;
   border: solid 0.125em #874c62;
   box-shadow: 0.25em 0.25em 0.125em #999;
+  transition: all 0.5s ease;
+}
+
+.selectors li button:hover,
+.selectors li button:focus {
+  background-color: #874c62;
+  color: #faeed1;
+}
+
+.selected {
+  background-color: #874c62;
+  color: #faeed1;
 }
 
 .photos {
-  background-color: #eee;
+  background-color: #faeed1;
   border: solid 0.125em #874c62;
   box-shadow: 0.25em 0.25em 0.125em #999;
   border-radius: 0.313em;
@@ -97,6 +112,103 @@ h1, h2 {
   flex-wrap: wrap;
   padding: 0.625em;
   display: none;
+}
+
+.column {
+  background: #ddd;
+  padding: 0.938em;
+  border-radius: 0.313em;
+  margin: 0.25em;
+}
+
+.column img {
+  height: 3.75em;
+  width: 3.75em;
+}
+
+.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.2), 0 0.375em 1.25em 0 rgba(0, 0, 0, 0.19);
+}
+
+/**** Lightbox Background ****/
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 6.25em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/**** Lightbox Content ****/
+.lightbox-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 75em;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 0.625em;
+  right: 1.5em;
+  font-size: 2.25em;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 1em;
+  margin-top: -3.125em;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25em;
+  transition: 0.6s ease;
+  border-radius: 0 0.188em  0.188em 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 0.188em 0 0 0.188em;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.caption-container {
+  position: absolute;
+  bottom: 15%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #faeed1;
+  padding: 0.313em 1em;
 }
 
 
@@ -109,16 +221,18 @@ h1, h2 {
   .profile-pic {
     width: 12em;
     height: 12em;
-    max-width: 12em;
-    max-height: 12em;
     margin-top: 2.25em;
     margin-left: 2.25em;
+    box-shadow: 0.25em 0.25em 0.25em 0.25em rgba(135, 76, 98, 0.5);
   }
   
   .profile-intro {
     margin: 0.938em;
-    font-size: 1em;
-    max-width: 31.25em;
+    font-size: 1.25em;
+  }
+  
+  .heading {
+    text-align: center;
   }
   
   .content {
@@ -149,6 +263,11 @@ h1, h2 {
     margin-left: auto;
     margin-right: auto;
   }
+  
+  .column img {
+  height: 6em;
+  width: 6em;
+  }
     
   
 
@@ -156,12 +275,16 @@ h1, h2 {
 
 
 @media screen and (min-width: 1024px) {
-  .banner {
-    border: solid 0.313em #c98474;
-  }
-  
+
   .profile-container {
     justify-content: flex-start;
+  }
+  
+  .profile-pic {
+    width: 20em;
+    height: 20em;
+    margin-right: auto;
+    box-shadow: 0.375em 0.375em 0.125em 0.375em rgba(135, 76, 98, 0.5);
   }
   
   .profile-intro {
@@ -170,5 +293,25 @@ h1, h2 {
   
   .heading {
     font-size: 3.5em;
+    margin: 0 0 0.313em 0;
   }
+  
+  
+  .column img {
+  height: 8em;
+  width: 8em;
+  }
+  
 } /*** end 1024 media query****/
+
+
+@media screen and (min-width: 1600px) {
+  .profile-pic {
+    margin-left: 0.625em;
+   }
+  
+  .profile-intro {
+    margin-right: 0.625em;
+  }
+
+}

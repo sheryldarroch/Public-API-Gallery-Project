@@ -2,24 +2,24 @@ function displayMusic1(data) {
   let musicHTML = '';
   $.each( data.albums.items, (i, item)=>{
     musicHTML += '<div class="column">';
-    musicHTML += '<img src="' + item.images[2].url + '" class="hover-shadow">';
+    musicHTML += '<img data-index="' + i + '"src="' + item.images[1].url + '" onclick="openLightbox();currentSlide(' + i + ')" class="hover-shadow">';
     musicHTML += '</div>';
   });
   $('#photos-m').html(musicHTML);
   $('#photos-m').css('display', 'flex');
-  let lightboxHTML = '<span class="close-cursor">&times;</span>';
+  let lightboxHTML = '<span class="close-cursor" onclick="closeLightbox()">&times;</span>';
   lightboxHTML += '<div class="lightbox-content">';
   $.each( data.albums.items, (i, item)=>{
     lightboxHTML += '<div class="mySlides">';
-    lightboxHTML += '<img src="' + item.images[0].url + '" style="width:100%">';
-    lightboxHTML += '<div class="caption-container>"';
+    lightboxHTML += '<img src="' + item.images[0].url + '" style="width:100%">'
+    lightboxHTML += '<div class="caption>"';
     lightboxHTML += '<p class="lightbox-name">Album Name: ' + item.name + '</p>';
-    lightboxHTML += '<a class="lightbox-url" href="' + item.external_urls.spotify +'">' + item.external_urls.spotify + '</a>';
+    lightboxHTML += '<a class="lightbox-url" href="' + item.external_urls.spotify +'">See album in Spotify</a>';
     lightboxHTML += '</div>';
     lightboxHTML += '</div>';
   });
-  lightboxHTML += '<a class="prev">&#10094;</a>';
-  lightboxHTML += '<a class="next">&#10095;</a>';
+  lightboxHTML += '<a class="prev" onclick="plusSlides(-1)">&#10094;</a>';
+  lightboxHTML += '<a class="next" onclick="plusSlides(1)">&#10095;</a>';
   lightboxHTML += '</div>';      
   lightboxHTML += '</div>';      
   $('#lightbox-m').html(lightboxHTML);
@@ -33,23 +33,22 @@ function closeLightbox() {
   $('#lightbox-m').css('display', 'none');
 }
 
-let slideIndex = 1;
-showSlides(slideIndex);
-    
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
     
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlides(slideIndex = n + 1);
 }
-    
+ 
+let slideIndex = 1;
+
 function showSlides(n) {
     const slides = $('.mySlides');
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     $(slides).each(()=>{
-        $(this).css('display', 'none');
+        $(slides).css('display', 'none');
     });
     $(slides[slideIndex-1]).css('display', 'block');
 }
@@ -91,17 +90,3 @@ $('#btn-m-3').click(()=>{
   $.getJSON(spotifyAPI, spotifyOptions, displayMusic1);
 });
 
-// Open lightbox when an album is clicked
-$('.column').each((i)=>{
-//  $(this).click(()=>{
-//  $(this).css('background-color', 'orange');
-  
-//    openLightbox();
-//    currentSlide(i);
-  })
-});
-  
-// Close lighbox when X is clicked
-$('close').click(()=>{
-    closeModal();
-});

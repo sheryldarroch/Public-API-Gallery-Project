@@ -34,16 +34,64 @@
           </div> <!-- end #lightbox-m -->
         </div> <!-- end .content -->
         <div class="content">
-          <h2 class="title">Books</h2>
-          <span class="sub-title" id="sub-title-b">Sort the books by . . .</span>
+          <h2 class="title">Movies</h2>
+<!--          <span class="sub-title" id="sub-title-b">Sort my favorite movies by . . .</span>-->
+<!--
           <ul class="selectors selectors-b flex">
             <li aria-labelledby="sub-title-b"><button></button></li>
             <li aria-labelledby="sub-title-b"><button></button></li>
             <li aria-labelledby="sub-title-b"><button></button></li>            
           </ul> 
+-->
           <div class="photos flex" id="photos-b">
+            <div class="column">
+              <img data-index="0" src="images/rsz_goftheg.jpg" onclick="openLightbox();currentSlide(0)" class="hover-shadow movies">
+            </div>
+
+            <div class="column">
+              <img data-index="1" src="images/rsz_breakfastclub.jpg" onclick="openLightbox();currentSlide(1)" class="hover-shadow movies">
+            </div>
+
+            <div class="column">
+              <img data-index="2" src="images/rsz_princessbride.jpg" onclick="openLightbox();currentSlide(2)" class="hover-shadow movies">
+            </div>
+
+            <div class="column">
+              <img data-index="3" src="images/rsz_16candles.jpg" onclick="openLightbox();currentSlide(3)" class="hover-shadow movies">
+            </div>
+
+            <div class="column">
+              <img data-index="4" src="images/rsz_beautybeast.jpg" onclick="openLightbox();currentSlide(4)" class="hover-shadow movies">
+            </div>
+
+            <div class="column">
+              <img data-index="5" src="images/rsz_incredibles.jpg" onclick="openLightbox();currentSlide(5)" class="hover-shadow movies">
+            </div>
+
+            <div class="column">
+              <img data-index="6" src="images/rsz_robots.jpg" onclick="openLightbox();currentSlide(6)" class="hover-shadow movies">
+            </div>
+
+            <div class="column">
+              <img data-index="7" src="images/rsz_topgun.jpg" onclick="openLightbox();currentSlide(7)" class="hover-shadow movies">
+            </div>
+            
+            <div class="column">
+              <img data-index="8" src="images/rsz_despicableme.jpg" onclick="openLightbox();currentSlide(8)" class="hover-shadow movies">
+            </div>
+            
+            <div class="column">
+              <img data-index="9" src="images/rsz_findingnemo.jpg" onclick="openLightbox();currentSlide(9)" class="hover-shadow movies">
+            </div>
           </div> <!-- end #photos-b -->
           <div class="lightbox" id="lightbox-b">
+            <span class="close-cursor" on-click="closeLightbox()">&times;</span>
+            <div class="lightbox-content" id="lightbox-content-b">
+            </div>
+            <div>
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
           </div> <!-- end #lightbox-b -->          
         </div> <!-- end .content -->
 

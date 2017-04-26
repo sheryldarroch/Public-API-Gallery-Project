@@ -1,3 +1,15 @@
+let movieSearch0 = "http://www.omdbapi.com/?t=guardians+of+the+galaxy";
+let movieSearch1 = "http://www.omdbapi.com/?t=breakfast+club";
+let movieSearch2 = "http://www.omdbapi.com/?t=princess+bride";
+let movieSearch3 = "http://www.omdbapi.com/?t=sixteen+candles";
+let movieSearch4 = "http://www.omdbapi.com/?t=beauty+and+the+beast&y=2017";
+let movieSearch5 = "http://www.omdbapi.com/?t=the+incredibles";
+let movieSearch6 = "http://www.omdbapi.com/?t=robots";
+let movieSearch7 = "http://www.omdbapi.com/?t=top+gun";
+let movieSearch8 = "http://www.omdbapi.com/?t=despicable+me";
+let movieSearch9 = "http://www.omdbapi.com/?t=finding+nemo";
+
+
 function displayMusic1(data) {
   let musicHTML = '';
   $.each( data.albums.items, (i, item)=>{
@@ -13,8 +25,8 @@ function displayMusic1(data) {
     lightboxHTML += '<div class="mySlides">';
     lightboxHTML += '<img src="' + item.images[0].url + '" style="width:100%">'
     lightboxHTML += '<div class="caption>"';
-    lightboxHTML += '<p class="lightbox-name">Album Name: ' + item.name + '</p>';
-    lightboxHTML += '<a class="lightbox-url" href="' + item.external_urls.spotify +'">See album in Spotify</a>';
+    lightboxHTML += '<p class="lightbox-name"><strong>Album Name:</strong> ' + item.name + '</p>';
+    lightboxHTML += '<a class="lightbox-url" href="' + item.external_urls.spotify +'">Listen to this Album in Spotify</a>';
     lightboxHTML += '</div>';
     lightboxHTML += '</div>';
   });
@@ -24,7 +36,30 @@ function displayMusic1(data) {
   lightboxHTML += '</div>';      
   $('#lightbox-m').html(lightboxHTML);
 }
+    
+//Get Movie Info
+function getMovies (url) {
+   $.getJSON(url);
+}
 
+//create Movie Slides    
+function movieSlides(obj) {
+    let lightboxHTML = '';
+    $.each(obj, ()=>{
+    lightboxHTML += '<div class="mySlides">';
+    lightboxHTML += '<img src="' + obj.Poster + '">'
+    lightboxHTML += '<div class="caption>"';
+    lightboxHTML += '<p class="lightbox-title"><strong>Movie Title:</strong> ' + obj.Title + '</p>';
+    lightboxHTML += '<p class="lightbox-year"><strong>Year:</strong> ' + obj.Year + '</p>';  
+    lightboxHTML += '<p class="lightbox-rated"><strong>Rated:</strong> ' + obj.Rated + '</p>';
+    lightboxHTML += '<p class="lightbox-genre"><strong>Genre:</strong> ' + obj.Genre + '</p>';  
+    lightboxHTML += '<p class="lightbox-plot"><strong>Plot:</strong> ' + obj.Plot + '</p>';    
+    lightboxHTML += '</div>';
+    lightboxHTML += '</div>';
+    });  
+    $('#lightbox-content-b').html(lightboxHTML);
+}
+    
 function openLightbox() {
   $('#lightbox-m').css('display', 'block');
 } 
@@ -47,12 +82,12 @@ function showSlides(n) {
     const slides = $('.mySlides');
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
-    $(slides).each(()=>{
-        $(slides).css('display', 'none');
+    $(slides).each((i, e)=>{
+        $(e).css('display', 'none');
     });
     $(slides[slideIndex-1]).css('display', 'block');
 }
-    
+
 // Display album selections when button is clicked    
 $('#btn-m-1').click(()=>{
   $('.selectors-m li button').removeClass('selected');
@@ -89,4 +124,22 @@ $('#btn-m-3').click(()=>{
   };  
   $.getJSON(spotifyAPI, spotifyOptions, displayMusic1);
 });
+
+//Call Movie AJAX Requests and Create Movie Lightbox
+$.when($.getJSON(movieSearch0),
+       $.getJSON(movieSearch1),
+       $.getJSON(movieSearch2),
+       $.getJSON(movieSearch3),
+       $.getJSON(movieSearch4),
+       $.getJSON(movieSearch5),
+       $.getJSON(movieSearch6),
+       $.getJSON(movieSearch7),
+       $.getJSON(movieSearch8),
+       $.getJSON(movieSearch9)
+      )
+      .done(function(data0, data1, data2, data3, data4, data5, data6, data7, data8, data9) {
+          let allData = [].concat(data0).concat(data1).concat(data2).concat(data3).concat(data4).concat(data5).concat(data6).concat(data7).concat(data8).concat(data9);
+          movieSlides(allData);
+    });
+
 

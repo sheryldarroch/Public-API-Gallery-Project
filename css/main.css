@@ -118,7 +118,8 @@ h1, h2 {
   display: none;
 }
 
-.column {
+.column,
+.movie-thumb{
   background: #a7d2cb;
   padding: 0.938em;
   border-radius: 0.313em;
@@ -157,12 +158,10 @@ h1, h2 {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.lightbox-b {
-  display: block;
-}
 
 /**** Lightbox Content ****/
-.lightbox-content {
+.lightbox-content,
+.movie-lighbox {
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -171,7 +170,8 @@ h1, h2 {
   max-width: 75em;
 }
 
-.close-cursor {
+.close-cursor,
+.movie-close-cursor {
   color: #a7d2cb;
   position: absolute;
   top: 0.625em;
@@ -182,19 +182,24 @@ h1, h2 {
 }
 
 .close-cursor:hover,
-.close-cursor:focus {
+.close-cursor:focus,
+.movie-close-cursor:hover,
+.movie-close-cursor:focus {
   transform: scale(1.5);
   color: white;
   text-decoration: none;
   cursor: pointer;
 }
 
-.mySlides {
+.music-slides,
+.movie-slides {
   display: none;
 }
 
 .prev,
-.next {
+.next,
+.movie-next,
+.movie-prev {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -213,16 +218,27 @@ h1, h2 {
   border-radius: 0.188em 0 0 0.188em;
 }
 
+.movie-next {
+  right: 12.5%;
+  border-radius: 0.188em 0 0 0.188em;
+}
+
 .prev {
   left: 0;
 }
 
+.movie-prev {
+  left: 12.5%;
+}
 .prev:hover,
-.next:hover {
+.next:hover,
+.movie-next:hover,
+.movie-prev:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.caption {
+.caption,
+.movie-caption {
   position: absolute;
   bottom: 0.625em; 
   background-color: #faeed1;
@@ -241,6 +257,7 @@ h1, h2 {
 .lightbox-url:focus {
   color: #a7d2cb;
 }
+
 
 
 @media screen and (min-width: 768px) {

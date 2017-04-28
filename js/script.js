@@ -9,7 +9,7 @@ let movieSearch7 = "http://www.omdbapi.com/?t=top+gun";
 let movieSearch8 = "http://www.omdbapi.com/?t=despicable+me";
 let movieSearch9 = "http://www.omdbapi.com/?t=finding+nemo";
 
-   //create Music gallery and lightbox
+//create Music gallery and lightbox
 function displayMusic1(data) {
   let musicHTML = '';
   $.each( data.albums.items, (i, item)=>{
@@ -19,6 +19,7 @@ function displayMusic1(data) {
   });
   $('#photos-m').html(musicHTML);
   $('#photos-m').css('display', 'flex');
+  
   let lightboxHTML = '<span class="close-cursor">&times;</span>';
   lightboxHTML += '<div class="lightbox-content">';
   $.each( data.albums.items, (i, item)=>{
@@ -35,6 +36,7 @@ function displayMusic1(data) {
   lightboxHTML += '</div>';      
   lightboxHTML += '</div>';      
   $('#lightbox-m').html(lightboxHTML);
+  displayMusicLightbox('.column');
 }
 
 //create Movie Slides    
@@ -125,14 +127,16 @@ $('#btn-m-3').click(()=>{
   $.getJSON(spotifyAPI, spotifyOptions, displayMusic1);
 });
 
-//Display lightbox and slides when album is clicked
-$('.music-thumb').click((e)=>{
-        let index = $(e).attr('data-index');
-        console.log(index);
-        openLightbox('#lightbox-m');
-        currentMusicSlide(index);
-});
-  
+//Display lightbox and slides when album is clicked helper function
+function displayMusicLightbox(e) {
+  $(e).click((event)=>{
+          let img = $(event.target).children();
+          let index = img.data(dataindex);
+          console.log(index);
+          openLightbox('#lightbox-m');
+          currentMusicSlide(index);
+  });
+}  
 //Close lightbox when "X" is clicked
 $('.close-cursor').click(()=>{
     closeLightbox('#lightbox-m');
@@ -186,12 +190,14 @@ function showMovieSlides(n) {
     $(slides).each((i, e)=>{
         $(e).css('display', 'none');
     });
-    $(slides[movieeIndex-1]).css('display', 'block');
+    $(slides[movieIndex-1]).css('display', 'block');
 }  
   
 //Display lightbox and slides when movie poster is clicked
-$('.movie-thumb').click((e)=>{
-        let index = $(e).attr('data-index');
+$('.movie-thumb').click((event)=>{
+        let img = $(event.target).children();
+        let index = img.data(dataindex);
+        console.log(index);
         openLightbox('#lightbox-b');
         currentMovieSlide(index);
 });

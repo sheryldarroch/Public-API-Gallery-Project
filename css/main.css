@@ -36,6 +36,7 @@ h1, h2 {
 }
 
 .profile-container {
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
@@ -53,11 +54,13 @@ h1, h2 {
 
 .profile-intro {
   font-size: 0.75em;
-  margin: 0.625em;
+  margin: 0 0.625em;
+  text-align: center;
 }
 
 .heading {
-  margin-left: 0.625em;
+  margin: 0.625em;
+  text-align: center;
 }
 
 /**** Gallery Styling****/
@@ -161,18 +164,18 @@ h1, h2 {
 
 /**** Lightbox Content ****/
 .lightbox-content,
-.movie-lighbox {
+.movie-lightbox {
   position: relative;
-  background-color: #fefefe;
+  background-color: #a7d2cb;
   margin: auto;
   padding: 0;
-  width: 75%;
+  width: 90%;
   max-width: 75em;
 }
 
 .close-cursor,
 .movie-close-cursor {
-  color: #a7d2cb;
+  color: #fff;
   position: absolute;
   top: 0.625em;
   right: 1.5em;
@@ -186,7 +189,7 @@ h1, h2 {
 .movie-close-cursor:hover,
 .movie-close-cursor:focus {
   transform: scale(1.5);
-  color: white;
+  color: #000;
   text-decoration: none;
   cursor: pointer;
 }
@@ -213,23 +216,17 @@ h1, h2 {
   border-radius: 0 0.188em  0.188em 0;
 }
 
-.next {
+.next,
+.movie-next {
   right: 0;
   border-radius: 0.188em 0 0 0.188em;
 }
 
-.movie-next {
-  right: 12.5%;
-  border-radius: 0.188em 0 0 0.188em;
-}
-
-.prev {
+.prev,
+.movie-prev {
   left: 0;
 }
 
-.movie-prev {
-  left: 12.5%;
-}
 .prev:hover,
 .next:hover,
 .movie-next:hover,
@@ -240,22 +237,33 @@ h1, h2 {
 .caption,
 .movie-caption {
   position: absolute;
-  bottom: 0.625em; 
   background-color: #faeed1;
   color: #874c62;
-  padding: 0.313em;
   text-align: center;
+  width: 100%;
+}
+
+.caption {
+  bottom: 0;
+}
+
+.lightbox-name {
+  margin: 0;
+}
+
+.movie-poster {
+  width: 100%;
 }
 
 .lightbox-url {
   cursor: pointer;
-  color: #874c62;
+  color: #4e978b;
   transition: .5s ease;
 }
 
 .lightbox-url:hover,
 .lightbox-url:focus {
-  color: #a7d2cb;
+  color: #874c62;
 }
 
 
@@ -277,10 +285,6 @@ h1, h2 {
   .profile-intro {
     margin: 0.938em;
     font-size: 1.25em;
-  }
-  
-  .heading {
-    text-align: center;
   }
   
   .content {
@@ -322,20 +326,18 @@ h1, h2 {
   width: 6em;
   }
   
+  .movie-poster {
+    width: 40%;
+  }
 
 } /**** end 768 media query****/
 
 
 @media screen and (min-width: 1024px) {
 
-  .profile-container {
-    justify-content: flex-start;
-  }
-  
   .profile-pic {
-    width: 20em;
-    height: 20em;
-    margin-right: auto;
+    width: 15em;
+    height: 15em;
     box-shadow: 0.375em 0.375em 0.125em 0.375em rgba(135, 76, 98, 0.5);
   }
   
@@ -345,9 +347,7 @@ h1, h2 {
   
   .heading {
     font-size: 3.5em;
-    margin: 0 0 0.313em 0;
   }
-  
   
   .column img {
   height: 8em;
@@ -360,15 +360,3 @@ h1, h2 {
   }
   
 } /*** end 1024 media query****/
-
-
-@media screen and (min-width: 1600px) {
-  .profile-pic {
-    margin-left: 0.625em;
-   }
-  
-  .profile-intro {
-    margin-right: 0.625em;
-  }
-
-}

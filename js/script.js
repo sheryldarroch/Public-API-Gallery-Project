@@ -167,7 +167,7 @@ function movieSlides(obj) {
     let lightboxHTML = '';
     $.each(obj, (i, item)=>{
     lightboxHTML += '<div class="movie-slides">';
-    lightboxHTML += '<img class="moviePoster" src="' + item.Poster + '">';
+    lightboxHTML += '<img class="movie-poster" src="' + item.Poster + '">';
     lightboxHTML += '<div class="movie-caption">';
     lightboxHTML += '<p class="movie-title"><strong>Movie Title:</strong> ' + item.Title + '</p>';
     lightboxHTML += '<p class="movie-year"><strong>Year:</strong> ' + item.Year + '</p>';  
@@ -237,6 +237,6 @@ $.when($.getJSON(movieSearch0),
           displayMovieLightbox('.movies');
           closeMovieLightbox('.movie-close-cursor');
           prevMovieSlide('.movie-prev');
-          nextMovieSlide('.movei-next');     
+          nextMovieSlide('.movie-next');     
     });
 

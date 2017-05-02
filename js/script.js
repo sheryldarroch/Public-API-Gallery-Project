@@ -23,9 +23,12 @@ function showMusicSlides(n) {
 let movieIndex = 1;
 //Show Movie Slides Helper Function
 function showMovieSlides(n) {
+    let movieIndex = (+n) -1;
     let slides = $('.movie-slides');
+    console.log(slides.length);
     if(n > slides.length) {movieIndex = 0};
-    if(n < 0) {movieIndex = slides.length};
+    if(n < 1) {movieIndex = slides.length};
+    console.log(n);
     $(slides).each((i, e)=>{
         $(e).css('display', 'none');
     });
@@ -52,6 +55,7 @@ function nextMusicSlide(e) {
 function prevMovieSlide(e) {      
   $(e).click (()=>{
       movieIndex += -1;
+      console.log(movieIndex);
       showMovieSlides(movieIndex);
   });
 }
@@ -60,6 +64,7 @@ function prevMovieSlide(e) {
 function nextMovieSlide(e) {      
   $(e).click (()=>{
       movieIndex += 1;
+      console.log(movieIndex);      
       showMovieSlides(movieIndex);      
   }); 
 }        
@@ -77,6 +82,7 @@ function displayMusicLightbox(e) {
 function displayMovieLightbox(e) {      
   $(e).click((event)=>{
           let index = $(event.target).attr("data-index");
+          console.log(index);
           $('#lightbox-b').css('display', 'block');
           showMovieSlides(index)      
   });

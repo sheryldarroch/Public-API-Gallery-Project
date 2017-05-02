@@ -9,28 +9,7 @@ let movieSearch7 = "http://www.omdbapi.com/?t=top+gun";
 let movieSearch8 = "http://www.omdbapi.com/?t=despicable+me";
 let movieSearch9 = "http://www.omdbapi.com/?t=finding+nemo";
 
-//Open Lightbox helper function  
-function openLightbox(e) {
-  $(e).css('display', 'block');
-} 
-
-//Close Lightbox helper function    
-function closeLightbox(e) {
-  $(e).css('display', 'none');
-}
-
-//Show Prev/Next Music Slide Helper Function    
-function plusMusicSlides(n) {
-    showMusicSlides(slideIndex += n);
-}
-
-//Show Current Music Slide Helper Function    
-function currentMusicSlide(n) {
-    showMusicSlides(slideIndex = n + 1);
-}
- 
 let slideIndex = 1;
-//Show Music Slides Helper Function
 function showMusicSlides(n) {
     let slides = $('.music-slides');
     if (n > slides.length) {slideIndex = 1};
@@ -38,39 +17,84 @@ function showMusicSlides(n) {
     $(slides).each((i, e)=>{
         $(e).css('display', 'none');
     });
-    $(slides[slideIndex-1]).css('display', 'block');
+    $(slides[slideIndex]).css('display', 'block');
 }
       
-//Add click function and display lightbox and slides when album is clicked helper function
-function displayMusicLightbox(e) {
-  $(e).click(()=>{
-          let index = $(e).attr('data-index');
-          console.log(index);
-          openLightbox('#lightbox-m');
-          currentMusicSlide(index);
-  });
-} 
+let movieIndex = 1;
+//Show Movie Slides Helper Function
+function showMovieSlides(n) {
+    let slides = $('.movie-slides');
+    if(n > slides.length) {movieIndex = 0};
+    if(n < 0) {movieIndex = slides.length};
+    $(slides).each((i, e)=>{
+        $(e).css('display', 'none');
+    });
+    $(slides[movieIndex]).css('display', 'block');
+}  
 
-//Add click function and close Music Lightbox when X is clicked helper function
-function closeMusicLightbox(e) {
-  $(e).click(()=>{
-      closeLightbox('#lightbox-m');
-  });
-}
-  
 // Add click function and Show previous Music slide when prev arrow clicked
 function prevMusicSlide(e) {
   $(e).click (()=>{
-      plusMusicSlides(-1);
+      slideIndex += -1;
+      showMusicSlides(slideIndex);
   });
 }
     
 // Add click function and Show next music slide when next arrow clicked
 function nextMusicSlide(e) {
     $(e).click (()=>{
-    plusMusicSlides(1);
+      slideIndex += 1;
+      showMusicSlides(slideIndex);
   }); 
 }
+      
+//add click function and Show previous slide when prev arrow clicked
+function prevMovieSlide(e) {      
+  $(e).click (()=>{
+      movieIndex += -1;
+      showMovieSlides(movieIndex);
+  });
+}
+      
+//add click function and Show next slide when next arrow clicked
+function nextMovieSlide(e) {      
+  $(e).click (()=>{
+      movieIndex += 1;
+      showMovieSlides(movieIndex);      
+  }); 
+}        
+      
+//Add click function and display music lightbox and slides when album is clicked
+function displayMusicLightbox(e) {
+  $(e).click((event)=>{
+          let index = $(event.target).attr('data-index');
+          $('#lightbox-m').css('display', 'block');
+          showMusicSlide(index);
+  });
+} 
+
+//add click function and display movie lightbox and slides when movie poster is clicked
+function displayMovieLightbox(e) {      
+  $(e).click((event)=>{
+          let index = $(event.target).attr("data-index");
+          $('#lightbox-b').css('display', 'block');
+          showMovieSlides(index)      
+  });
+}  
+
+//Add click function and close Music Lightbox when X is clicked helper function
+function closeMusicLightbox(e) {
+  $(e).click(()=>{
+      $('#lightbox-m').css('display', 'none');
+  });
+}
+
+//add click function and Close Movie lightbox when "X" is clicked
+function closeMovieLightbox(e) {
+   $(e).click(()=>{
+      $('#lightbox-b').css('display', 'none');    
+   });
+}  
 
 //create Music gallery and lightbox
 function displayMusic1(data) {
@@ -108,59 +132,6 @@ function displayMusic1(data) {
   //show next slide when next arrow is clicked    
   nextMusicSlide('.next');
 }
-      
-//Show Prev/Next Movie Slide Helper Function    
-function plusMovieSlides(n) {
-    showMovieSlides(movieIndex += n);
-}
-
-//Show Current Movie Slide Helper Function    
-function currentMovieSlide(n) {
-    showMovieSlides(movieIndex = n + 1);
-}
- 
-let movieIndex = 1;
-//Show Movie Slides Helper Function
-function showMovieSlides(n) {
-    let slides = $('.movie-slides');
-    if (n > slides.length) {movieIndex = 1};
-    if (n < 1) {movieIndex = slides.length};
-    $(slides).each((i, e)=>{
-        $(e).css('display', 'none');
-    });
-    $(slides[movieIndex-1]).css('display', 'block');
-}  
-  
-//add click function and Display lightbox and slides when movie poster is clicked
-function displayMovieLightbox(e) {      
-  $(e).click(()=>{
-          let index = $(e).attr("data-index");
-          console.log(index);
-          openLightbox('#lightbox-b');
-          currentMovieSlide(index);
-  });
-}  
-      
-//add click function and Close lightbox when "X" is clicked
-function closeMovieLightbox(e) {
-   $(e).click(()=>{
-   closeLightbox('#lightbox-b');
-   });
-}  
-      
-//add click function and Show previous slide when prev arrow clicked
-function prevMovieSlide(e) {      
-  $(e).click (()=>{
-      plusMovieSlides(-1);
-  });
-}
-      
-//add click function and Show next slide when next arrow clicked
-function nextMovieSlide(e) {      
-  $(e).click (()=>{
-      plusMovieSlides(1);
-  }); 
-}  
 
 //create Movie Slides    
 function movieSlides(obj) {

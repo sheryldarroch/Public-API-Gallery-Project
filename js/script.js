@@ -20,21 +20,35 @@ function showMusicSlides(n) {
     $(slides[slideIndex]).css('display', 'block');
 }
       
-let movieIndex = 1;
-//Show Movie Slides Helper Function
-function showMovieSlides(n) {
-    let movieIndex = (+n) -1;
-    let slides = $('.movie-slides');
-    console.log(slides.length);
-    if(n > slides.length) {movieIndex = 0};
-    if(n < 1) {movieIndex = slides.length};
-    console.log(n);
-    $(slides).each((i, e)=>{
-        $(e).css('display', 'none');
-    });
-    $(slides[movieIndex]).css('display', 'block');
-}  
+//let movieIndex = 1;
+////Show Movie Slides Helper Function
+//function showMovieSlides(n) {
+//    let movieIndex = (+n) - 1;
+//    console.log(movieIndex);
+//    let slides = $('.movie-slides');
+//    console.log(slides.length);
+//    if(n > slides.length) {movieIndex = 0};
+//    if(n < 0) {movieIndex = slides.length};
+//    console.log(n);
+//    $(slides).each((i, e)=>{
+//        $(e).css('display', 'none');
+//    });
+//    $(slides[movieIndex]).css('display', 'block');
+//}  
 
+let movieIndex = 0;
+function showMovieSlides(n) {
+      let slides = $('.movie-slides');
+      movieIndex += n;
+      if (n >= slides.length) {movieIndex = 0};
+      if (n < 0) {movieIndex = slides.length - 1};
+      slides.each((i,e)=>{
+          $(e).css('display', 'none');
+      });
+      slides.eq(movieIndex).css('display', 'block');    
+}      
+      
+      
 // Add click function and Show previous Music slide when prev arrow clicked
 function prevMusicSlide(e) {
   $(e).click (()=>{
@@ -54,18 +68,14 @@ function nextMusicSlide(e) {
 //add click function and Show previous slide when prev arrow clicked
 function prevMovieSlide(e) {      
   $(e).click (()=>{
-      movieIndex += -1;
-      console.log(movieIndex);
-      showMovieSlides(movieIndex);
+      showMovieSlides(-1);
   });
 }
       
 //add click function and Show next slide when next arrow clicked
 function nextMovieSlide(e) {      
   $(e).click (()=>{
-      movieIndex += 1;
-      console.log(movieIndex);      
-      showMovieSlides(movieIndex);      
+      showMovieSlides(1);      
   }); 
 }        
       
@@ -84,8 +94,21 @@ function displayMovieLightbox(e) {
           let index = $(event.target).attr("data-index");
           console.log(index);
           $('#lightbox-b').css('display', 'block');
-          showMovieSlides(index)      
+          showMovieSlides(index);
+//          //show previous slide when prev arrow is clicked
+//          $('.movie-prev').click (()=>{ 
+//              movieIndex = index - 1;
+//              console.log(movieIndex);
+//              showMovieSlides(movieIndex);
+//          }); 
+//          $('.movie-next').click (()=>{
+//              movieIndex = index + 1;
+//              console.log(index);      
+//              showMovieSlides(movieIndex);      
+//          }); 
   });
+
+     
 }  
 
 //Add click function and close Music Lightbox when X is clicked helper function
@@ -133,10 +156,10 @@ function displayMusic1(data) {
   displayMusicLightbox('.music-thumb');
   //close lightbox when x is clicked    
   closeMusicLightbox('.close-cursor');
-  //show previous slide when prev arrow is clicked    
+  //show previous slide when prev arrow is clicked       
   prevMusicSlide('.prev');
   //show next slide when next arrow is clicked    
-  nextMusicSlide('.next');
+  nextMusicSlide('.next');      
 }
 
 //create Movie Slides    

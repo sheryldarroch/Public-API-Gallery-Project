@@ -39,13 +39,21 @@ function showMusicSlides(n) {
 let movieIndex = 0;
 function showMovieSlides(n) {
       let slides = $('.movie-slides');
-      movieIndex += n;
-      if (n >= slides.length) {movieIndex = 0};
-      if (n < 0) {movieIndex = slides.length - 1};
+//      movieIndex = n;
+//      console.log(movieIndex);
+      if (n >= slides.length) {
+        movieIndex = 0;
+      }
+      if (n < 0) {
+        movieIndex = slides.length - 1;
+      } else {
+        movieIndex = n;
+      }
       slides.each((i,e)=>{
           $(e).css('display', 'none');
       });
-      slides.eq(movieIndex).css('display', 'block');    
+      slides.eq(movieIndex).css('display', 'block'); 
+      console.log(movieIndex);
 }      
       
       
@@ -68,14 +76,20 @@ function nextMusicSlide(e) {
 //add click function and Show previous slide when prev arrow clicked
 function prevMovieSlide(e) {      
   $(e).click (()=>{
-      showMovieSlides(-1);
+      console.log(movieIndex)
+      movieIndex += -1;
+      console.log(movieIndex);
+      showMovieSlides(movieIndex);
   });
 }
       
 //add click function and Show next slide when next arrow clicked
 function nextMovieSlide(e) {      
   $(e).click (()=>{
-      showMovieSlides(1);      
+      console.log(movieIndex);
+      movieIndex += 1;
+      console.log(movieIndex);
+      showMovieSlides(movieIndex);      
   }); 
 }        
       
@@ -95,6 +109,8 @@ function displayMovieLightbox(e) {
           console.log(index);
           $('#lightbox-b').css('display', 'block');
           showMovieSlides(index);
+//          prevMovieSlide('.movie-prev');
+//          nextMovieSlide('.movie-next');
 //          //show previous slide when prev arrow is clicked
 //          $('.movie-prev').click (()=>{ 
 //              movieIndex = index - 1;

@@ -106,6 +106,7 @@ function displayMusicLightbox(e) {
 function displayMovieLightbox(e) {      
   $(e).click((event)=>{
           let index = $(event.target).attr("data-index");
+          parseInt(index, 10);
           console.log(index);
           $('#lightbox-b').css('display', 'block');
           showMovieSlides(index);

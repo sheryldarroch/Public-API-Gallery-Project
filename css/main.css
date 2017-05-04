@@ -134,7 +134,7 @@ h1, h2 {
   width: 3.75em;
 }
 
-#photos-b .column img {
+.movies {
   height: 5.75em;
   width: 3.75em;
 }
@@ -321,7 +321,7 @@ h1, h2 {
   width: 6em;
   }
    
-  #photos-b .column img {
+  .movies {
   height: 9em;
   width: 6em;
   }
@@ -354,7 +354,7 @@ h1, h2 {
   width: 8em;
   }
   
-  #photos-b .column img {
+  .movies {
   height: 12em;
   width: 8em;
   }

@@ -92,8 +92,10 @@ function closeLightbox(e) {
   $(e).click(()=>{
     if (e === '.close-cursor') {
       $('#lightbox-m').hide();
+      $('.music-slides').hide();
     } else if (e === '.movie-close-cursor') {
-      $('#lightbox-b').hide(); 
+      $('#lightbox-b').hide();
+      $('.movie-slides').hide();
     } else if (e === '.movie-sorted-close') {
       $('#lightbox-a').hide();
     }

@@ -9,6 +9,7 @@ let movieSearch7 = "http://www.omdbapi.com/?t=top+gun";
 let movieSearch8 = "http://www.omdbapi.com/?t=despicable+me";
 let movieSearch9 = "http://www.omdbapi.com/?t=finding+nemo";
 
+
 //Music Slides Helper Function to use with Click Arrows
 function showMusicSlides(n) {
   let musicSlides = $('.music-slides');
@@ -90,9 +91,11 @@ function displayMovieLightbox(e) {
 function closeLightbox(e) {
   $(e).click(()=>{
     if (e === '.close-cursor') {
-      $('#lightbox-m').css('display', 'none');
+      $('#lightbox-m').hide();
     } else if (e === '.movie-close-cursor') {
-      $('#lightbox-b').css('display', 'none'); 
+      $('#lightbox-b').hide(); 
+    } else if (e === '.movie-sorted-close') {
+      $('#lightbox-a').hide();
     }
   });
 }
@@ -136,11 +139,11 @@ function createMovieSlides(obj) {
     lightboxHTML += '<div class="movie-slides">';
     lightboxHTML += '<img class="movie-poster" src="' + item.Poster + '">';
     lightboxHTML += '<div class="movie-caption">';
-    lightboxHTML += '<p class="movie-title"><strong>Movie Title:</strong> ' + item.Title + '</p>';
-    lightboxHTML += '<p class="movie-year"><strong>Year:</strong> ' + item.Year + '</p>';  
-    lightboxHTML += '<p class="movie-rated"><strong>Rated:</strong> ' + item.Rated + '</p>';
-    lightboxHTML += '<p class="movie-genre"><strong>Genre:</strong> ' + item.Genre + '</p>';  
-    lightboxHTML += '<p class="movie-plot"><strong>Plot:</strong> ' + item.Plot + '</p>';    
+    lightboxHTML += '<p><span><strong>Movie Title:</strong></span><span class="movie-title"> ' + item.Title + '</span></p>';
+    lightboxHTML += '<p><span><strong>Year:</strong></span><span class="movie-year"> ' + item.Year + '</span></p>';  
+    lightboxHTML += '<p><span><strong>Rated:</strong></span><span class="movie-rated"> ' + item.Rated + '</span></p>';
+    lightboxHTML += '<p><strong>Genre:</strong> ' + item.Genre + '</p>';  
+    lightboxHTML += '<p><strong>Plot:</strong> ' + item.Plot + '</p>';    
     lightboxHTML += '</div>';
     lightboxHTML += '</div>';
     });  
@@ -205,4 +208,34 @@ $.when($.getJSON(movieSearch0),
           closeLightbox('.movie-close-cursor');
           clickMovieArrow('.movie-arrow');
     });
+
+function sortMoviesByName(a, b) {
+    let aName = a.textContent.toLowerCase();
+    let bName = b.textContent.toLowerCase();
+    return ((aName < bName) ? -1: (aName > bName) ? 1 : 0);
+}
+
+$('#btn-name').click(()=>{
+    let movies = $('.movie-title');
+    let sortedMovies = movies.sort(sortMoviesByName);
+    let lightboxHTML = '<div class="movie-slides-sorted">';
+    $('#lightbox-a').show();   
+    $.each(sortedMovies, (i, item)=>{
+    lightboxHTML += '<p class="movie-title-sorted">' + item.innerText + '</p>';
+    });
+    lightboxHTML += '</div>';
+    $('#lightbox-content-a').html(lightboxHTML);
+    $('#lightbox-content-a').show();
+    closeLightbox('.movie-sorted-close');
+});
+
+
+
+
+
+
+
+
+
+
 

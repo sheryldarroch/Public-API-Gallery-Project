@@ -35,14 +35,8 @@
         
         <div class="content">
           <h2 class="title">Movies</h2>
-<!--          <span class="sub-title" id="sub-title-b">Sort my favorite movies by . . .</span>-->
-<!--
-          <ul class="selectors selectors-b flex">
-            <li aria-labelledby="sub-title-b"><button></button></li>
-            <li aria-labelledby="sub-title-b"><button></button></li>
-            <li aria-labelledby="sub-title-b"><button></button></li>            
-          </ul> 
--->
+          <span class="sub-title" id="sub-title-b">Sort my favorite movies alphabetically by<button id="btn-name">Name</button></span>
+
           <div class="photos flex" id="photos-b">
             <div class="movie-thumb">
               <img data-index="0" src="images/rsz_goftheg.jpg" alt="Guardians of The Galaxy Movie Poster" class="hover-shadow movies">
@@ -57,7 +51,7 @@
             </div>
 
             <div class="movie-thumb">
-              <img data-index="3" src="images/rsz_16candles.jpg" alt="16 Candles Movie Poster" class="hover-shadow movies">
+              <img data-index="3" src="images/rsz_16candles.jpg" alt="Sixteen Candles Movie Poster" class="hover-shadow movies">
             </div>
 
             <div class="movie-thumb">
@@ -88,14 +82,20 @@
             <div class="movie-lightbox">
               <span class="movie-close-cursor">&times;</span>
               <div id="lightbox-content-b">
-              </div>
+              </div> <!-- end #lightbox-content-b -->
               <div>
                 <a class="movie-arrow movie-prev">&#10094;</a>
                 <a class="movie-arrow movie-next">&#10095;</a>
               </div>
             </div> <!-- end .movie-lightbox -->
           </div> <!-- end #lightbox-b -->
-            
+          <div class="lightbox" id="lightbox-a">
+            <div class="movie-sorted-lightbox">
+              <span class="movie-sorted-close">&times;</span>            
+              <div id="lightbox-content-a">
+              </div>
+            </div>  
+          </div>  
         </div> <!-- end .content -->
 
       </div> <!-- end .main-container -->
@@ -108,6 +108,6 @@
     <script src="js/script.js"></script>  
   </body>
   <footer role="contentinfo">
-    
+    <p>Site by Sheryl Darroch, 2017</p>
   </footer>
 </html>

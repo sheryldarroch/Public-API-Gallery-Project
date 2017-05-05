@@ -53,7 +53,6 @@ h1, h2 {
 }
 
 .profile-intro {
-  font-size: 0.75em;
   margin: 0 0.625em;
   text-align: center;
 }
@@ -69,6 +68,10 @@ h1, h2 {
   padding: 0.625em;
 }
 
+#sub-title-b {
+  margin-bottom: 0.313em;
+}
+
 .selectors {
   padding: 0;
   flex-direction: column;
@@ -80,7 +83,8 @@ h1, h2 {
   list-style-position: inside;
 }
 
-.selectors li button { 
+.selectors li button,
+#btn-name { 
   margin: 0.313em;
   padding: 0.625em;
   background-color: #a7d2cb;
@@ -93,8 +97,14 @@ h1, h2 {
   transition: all 0.5s ease;
 }
 
+#btn-name {
+  padding: 0.175em 0.313em;
+}
+
 .selectors li button:hover,
-.selectors li button:focus {
+.selectors li button:focus,
+#btn-name:hover,
+#btn-name:focus {
   background-color: #874c62;
   color: #faeed1;
 }
@@ -119,6 +129,10 @@ h1, h2 {
 
 #photos-m {
   display: none;
+}
+
+#photos-b {
+  margin-top: 0.313em;
 }
 
 .column,
@@ -164,7 +178,8 @@ h1, h2 {
 
 /**** Lightbox Content ****/
 .lightbox-content,
-.movie-lightbox {
+.movie-lightbox,
+.movie-sorted-lightbox {
   position: relative;
   background-color: #a7d2cb;
   margin: auto;
@@ -174,11 +189,12 @@ h1, h2 {
 }
 
 .close-cursor,
-.movie-close-cursor {
+.movie-close-cursor,
+.movie-sorted-close {
   color: #fff;
   position: absolute;
   top: 0.625em;
-  right: 1.5em;
+  right: 1em;
   font-size: 2.25em;
   font-weight: bold;
   transition: .5s ease;
@@ -187,7 +203,9 @@ h1, h2 {
 .close-cursor:hover,
 .close-cursor:focus,
 .movie-close-cursor:hover,
-.movie-close-cursor:focus {
+.movie-close-cursor:focus,
+.movie-sorted-close:hover,
+.movie-sorted-close:focus {
   transform: scale(1.5);
   color: #000;
   text-decoration: none;
@@ -266,7 +284,18 @@ h1, h2 {
   color: #874c62;
 }
 
+.movie-slides-sorted {
+  background-color: #faeed1;
+  color: #874c62;
+  padding: 0.313em;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
 
+footer {
+  text-align: center;
+}
 
 @media screen and (min-width: 768px) {
 
@@ -309,6 +338,10 @@ h1, h2 {
   
   .selectors li button {
     padding: 1em;
+  }
+  
+  #btn-name {
+    padding: 0.313em 0.625em;
   }
   
   .photos {
@@ -357,6 +390,10 @@ h1, h2 {
   .movies {
   height: 12em;
   width: 8em;
+  }
+  
+  #btn-name {
+    padding: 0.625em 0.9em;
   }
   
 } /*** end 1024 media query****/

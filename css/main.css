@@ -9,6 +9,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
   background-color:  #faeed1;
   color: #874c62;
   margin: 0;
@@ -25,7 +26,7 @@ a {
 
 h1, h2 {
   font-family: 'Kaushan Script', cursive;
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: #a7d2cb;
 /*  text-shadow: 0.063em 0.063em 0.125em #874c62;*/
 }
@@ -33,6 +34,9 @@ h1, h2 {
 /*** Banner Styling ***/
 .banner {
   border-bottom: solid 0.313em #874c62;
+  flex-direction: column;
+  justify content: space-around;
+  align-items: center;
 }
 
 .profile-container {
@@ -66,10 +70,7 @@ h1, h2 {
 
 .content {
   padding: 0.625em;
-}
-
-#sub-title-b {
-  margin-bottom: 0.313em;
+  border-bottom: solid 0.313em #874c62; 
 }
 
 .selectors {
@@ -133,6 +134,7 @@ h1, h2 {
 
 #photos-b {
   margin-top: 0.313em;
+  margin-bottom: 1.5em;
 }
 
 .column,
@@ -300,20 +302,24 @@ footer {
 @media screen and (min-width: 768px) {
 
   h1, h2 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
     
   .profile-pic {
-    width: 12em;
-    height: 12em;
-    margin-top: 2.25em;
-    margin-left: 2.25em;
+    width: 9em;
+    height: 9em;
+    margin-top: 1em;
     box-shadow: 0.25em 0.25em 0.25em 0.25em rgba(135, 76, 98, 0.5);
   }
   
   .profile-intro {
-    margin: 0.938em;
-    font-size: 1.25em;
+    margin: 0.625em 0 0 0;
+    font-size: 1em;
+  }
+  
+  .heading {
+	  margin: 0.625em;
+	  padding: 0;
   }
   
   .content {
@@ -367,19 +373,30 @@ footer {
 
 
 @media screen and (min-width: 1024px) {
+	
+	.banner {
+		flex-direction: row;
+	}
 
   .profile-pic {
-    width: 15em;
-    height: 15em;
+    width: 12em;
+    height: 12em;
+	margin: 1.5em 4em;
     box-shadow: 0.375em 0.375em 0.125em 0.375em rgba(135, 76, 98, 0.5);
   }
   
+  .profile-container {
+	  margin-left: 6em;
+	  align-items: flex-start;
+  }
+  
   .profile-intro {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
   
   .heading {
-    font-size: 3.5em;
+    font-size: 3em;
+	margin: 1em 0 0 0;
   }
   
   .column img {

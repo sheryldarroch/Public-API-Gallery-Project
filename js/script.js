@@ -152,6 +152,7 @@ function createMovieSlides(obj) {
     $('#lightbox-content-b').html(lightboxHTML);
 }
 
+$().click();
 // Display album selections when button is clicked    
 $('#btn-m-1').click(()=>{
   $('.selectors-m li button').removeClass('selected');

@@ -152,44 +152,32 @@ function createMovieSlides(obj) {
     $('#lightbox-content-b').html(lightboxHTML);
 }
 
-$().click();
-// Display album selections when button is clicked    
-$('#btn-m-1').click(()=>{
-  $('.selectors-m li button').removeClass('selected');
-  $('#btn-m-1 button').addClass('selected');
-  let spotifyAPI = "https://api.spotify.com/v1/search?";
-  let spotifyOptions = {
-      q: "casting+crowns",
-      type: "album",
-      limit: 10
-  };  
-  $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
-});
+//Call Music AJAX requests when Artist Buttons are clicked helper function
+function displayMusicAlbums(e) {
+    $(e).click((event)=>{
+        let spotifyAPI = "https://api.spotify.com/v1/search?";
+        let artist = "";
+        let target = $(event.target);
+		console.log(event.target);
+        if(target.is('#btn-m-1')) {
+           artist = "casting+crowns";
+		   console.log(artist);
+        } else if ( target.is('#btn-m-2')) {
+           artist = "addison+road";
+          } else if ( target.is('#btn-m-3')) {
+              artist = "third+day";
+            }
+		let spotifyOptions = {
+            q: artist,
+            type: "album",
+            limit: 10
+         };
+    $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
+    });
+}  
 
-$('#btn-m-2').click(()=>{
-  $('.selectors-m li button').removeClass('selected');
-  $('#btn-m-2 button').addClass('selected');
-  let spotifyAPI = "https://api.spotify.com/v1/search?";
-  let spotifyOptions = {
-      q: "addison+road",
-      type: "album",
-      limit: 10
-  };  
-  $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
-});
-
-$('#btn-m-3').click(()=>{
-  $('.selectors-m li button').removeClass('selected');
-  $('#btn-m-3 button').addClass('selected');
-  let spotifyAPI = "https://api.spotify.com/v1/search?";
-  let spotifyOptions = {
-      q: "third+day",
-      type: "album",
-      limit: 10
-  };  
-  $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
-});
-
+// Call dislplayMusicAlbums function
+displayMusicAlbums('.btn-m');
 
 //Call Movie AJAX Requests and Create Movie Lightbox
 $.when($.getJSON(movieSearch0),

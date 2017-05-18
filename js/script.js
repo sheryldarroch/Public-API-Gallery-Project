@@ -1,13 +1,13 @@
-let movieSearch0 = "http://www.omdbapi.com/?t=guardians+of+the+galaxy";
-let movieSearch1 = "http://www.omdbapi.com/?t=breakfast+club";
-let movieSearch2 = "http://www.omdbapi.com/?t=princess+bride";
-let movieSearch3 = "http://www.omdbapi.com/?t=sixteen+candles";
-let movieSearch4 = "http://www.omdbapi.com/?t=beauty+and+the+beast&y=2017";
-let movieSearch5 = "http://www.omdbapi.com/?t=the+incredibles";
-let movieSearch6 = "http://www.omdbapi.com/?t=robots";
-let movieSearch7 = "http://www.omdbapi.com/?t=top+gun";
-let movieSearch8 = "http://www.omdbapi.com/?t=despicable+me";
-let movieSearch9 = "http://www.omdbapi.com/?t=finding+nemo";
+let movieSearch0 = "https://www.omdbapi.com/?t=guardians+of+the+galaxy";
+let movieSearch1 = "https://www.omdbapi.com/?t=breakfast+club";
+let movieSearch2 = "https://www.omdbapi.com/?t=princess+bride";
+let movieSearch3 = "https://www.omdbapi.com/?t=sixteen+candles";
+let movieSearch4 = "https://www.omdbapi.com/?t=beauty+and+the+beast&y=2017";
+let movieSearch5 = "https://www.omdbapi.com/?t=the+incredibles";
+let movieSearch6 = "https://www.omdbapi.com/?t=robots";
+let movieSearch7 = "https://www.omdbapi.com/?t=top+gun";
+let movieSearch8 = "https://www.omdbapi.com/?t=despicable+me";
+let movieSearch9 = "https://www.omdbapi.com/?t=finding+nemo";
 
 
 //Music Slides Helper Function to use with Click Arrows

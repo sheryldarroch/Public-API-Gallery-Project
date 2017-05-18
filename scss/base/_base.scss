@@ -1,0 +1,36 @@
+/*** Main Page Styling ***/
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  @include margin(0, 0);
+  font-family: $font-primary;
+  font-size: .75em;
+  background-color:  $champagne;
+  color: $cannon-pink;
+  @include bp(medium) {
+      font-size: 1em;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2 {
+  font-family: $font-secondary;
+  font-size: 1.25em;
+  color: $jet-stream;
+  @include bp(medium) {
+     font-size: 1.75em;
+  }
+}

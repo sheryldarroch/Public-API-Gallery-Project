@@ -8,7 +8,7 @@ let movieSearch6 = "http://www.omdbapi.com/?t=robots";
 let movieSearch7 = "http://www.omdbapi.com/?t=top+gun";
 let movieSearch8 = "http://www.omdbapi.com/?t=despicable+me";
 let movieSearch9 = "http://www.omdbapi.com/?t=finding+nemo";
-
+let musicButtons = $('.btn-m');
 
 //Music Slides Helper Function to use with Click Arrows
 function showMusicSlides(n) {
@@ -102,10 +102,12 @@ function closeLightbox(e) {
   });
 }
 
-//create Music gallery and lightbox
+//create Music gallery and lightbox helper function
 function displayMusic(data) {
   let musicHTML = '';
   $.each( data.albums.items, (i, item)=>{
+		console.log(data);
+		console.log(data.albums.items);
     musicHTML += '<div class="column">';
     musicHTML += '<img data-index="' + i + '" src="' + item.images[1].url + '" class="hover-shadow music-thumb">';
     musicHTML += '</div>';
@@ -134,7 +136,7 @@ function displayMusic(data) {
   clickMusicArrow('.arrow');  
 }
 
-//create Movie Slides    
+//create Movie Slides helper function 
 function createMovieSlides(obj) {
     let lightboxHTML = '';
     $.each(obj, (i, item)=>{
@@ -151,44 +153,38 @@ function createMovieSlides(obj) {
     });  
     $('#lightbox-content-b').html(lightboxHTML);
 }
+    
+//sort movie titles alphabetically helper function
+function sortMoviesByName(a, b) {
+    let aName = a.textContent.toLowerCase();
+    let bName = b.textContent.toLowerCase();
+    return ((aName < bName) ? -1: (aName > bName) ? 1 : 0);
+}
 
-// Display album selections when button is clicked    
-$('#btn-m-1').click(()=>{
-  $('.selectors-m li button').removeClass('selected');
-  $('#btn-m-1 button').addClass('selected');
-  let spotifyAPI = "https://api.spotify.com/v1/search?";
-  let spotifyOptions = {
-      q: "casting+crowns",
-      type: "album",
-      limit: 10
-  };  
-  $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
-});
+//Display albums when artist buttons are clicked helper function
+function displayMusicAlbums(e) {
+    $(e).click((event)=>{
+        let spotifyAPI = "https://api.spotify.com/v1/search?";
+        let artist = "";
+        let target = $(event.target);
+        if(target.is('#btn-m-1')) {
+           artist = "casting+crowns"; 
+        } else if ( target.is('#btn-m-2')) {
+           artist = "addison+road";
+          } else if ( target.is('#btn-m-3')) {
+              artist = "third+day";
+            }
+				let spotifyOptions = {
+				q: artist,
+				type: "album",
+				limit: 10
+				}; 				
+    $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
+    });
+}  
 
-$('#btn-m-2').click(()=>{
-  $('.selectors-m li button').removeClass('selected');
-  $('#btn-m-2 button').addClass('selected');
-  let spotifyAPI = "https://api.spotify.com/v1/search?";
-  let spotifyOptions = {
-      q: "addison+road",
-      type: "album",
-      limit: 10
-  };  
-  $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
-});
-
-$('#btn-m-3').click(()=>{
-  $('.selectors-m li button').removeClass('selected');
-  $('#btn-m-3 button').addClass('selected');
-  let spotifyAPI = "https://api.spotify.com/v1/search?";
-  let spotifyOptions = {
-      q: "third+day",
-      type: "album",
-      limit: 10
-  };  
-  $.getJSON(spotifyAPI, spotifyOptions, displayMusic);
-});
-
+//Call Display Music Albums 
+displayMusicAlbums(musicButtons);
 
 //Call Movie AJAX Requests and Create Movie Lightbox
 $.when($.getJSON(movieSearch0),
@@ -211,12 +207,7 @@ $.when($.getJSON(movieSearch0),
           clickMovieArrow('.movie-arrow');
     });
 
-function sortMoviesByName(a, b) {
-    let aName = a.textContent.toLowerCase();
-    let bName = b.textContent.toLowerCase();
-    return ((aName < bName) ? -1: (aName > bName) ? 1 : 0);
-}
-
+//Display lightbox and sorted/alphabatized movie titles when name button is clicked
 $('#btn-name').click(()=>{
     let movies = $('.movie-title');
     let sortedMovies = movies.sort(sortMoviesByName);

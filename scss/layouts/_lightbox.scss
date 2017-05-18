@@ -1,0 +1,131 @@
+/**** Lightbox Background ****/
+.lightbox {
+  @include size(100%, 100%);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 6.25em;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/**** Lightbox Content ****/
+.lightbox-content,
+.movie-lightbox,
+.movie-sorted-lightbox {
+  @include size(90%, null);
+  @include margin(auto, 0);
+  position: relative;
+  background-color: $jet-stream;
+  max-width: 75em;
+}
+
+.close-cursor,
+.movie-close-cursor,
+.movie-sorted-close {
+  color: #fff;
+  position: absolute;
+  top: 0.625em;
+  right: 1em;
+  font-size: 2.25em;
+  font-weight: bold;
+  transition: .5s ease;
+}
+
+.close-cursor:hover,
+.close-cursor:focus,
+.movie-close-cursor:hover,
+.movie-close-cursor:focus,
+.movie-sorted-close:hover,
+.movie-sorted-close:focus {
+  transform: scale(1.5);
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.music-slides,
+.movie-slides {
+  display: none;
+}
+
+.prev,
+.next,
+.movie-next,
+.movie-prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 1em;
+  margin-top: -3.125em;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25em;
+  transition: 0.6s ease;
+  border-radius: 0 0.188em  0.188em 0;
+}
+
+.next,
+.movie-next {
+  right: 0;
+  border-radius: 0.188em 0 0 0.188em;
+}
+
+.prev,
+.movie-prev {
+  left: 0;
+}
+
+.prev:hover,
+.next:hover,
+.movie-next:hover,
+.movie-prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.caption,
+.movie-caption {
+  position: absolute;
+  background-color: $champagne;
+  color: $cannon-pink;
+  text-align: center;
+  width: 100%;
+}
+
+.caption {
+  bottom: 0;
+}
+
+.lightbox-name {
+  margin: 0;
+}
+
+.movie-poster {
+  width: 100%;
+  @include bp(medium) {
+    width: 40%;  
+  }
+}
+
+.lightbox-url {
+  cursor: pointer;
+  color: darken($jet-stream, 50%);
+  transition: .5s ease;
+}
+
+.lightbox-url:hover,
+.lightbox-url:focus {
+  color: $cannon-pink;
+}
+
+.movie-slides-sorted {
+  @include margin(auto, 0.313em);
+  background-color: $champagne;
+  color: $cannon-pink;
+  width: 90%;
+  text-align: center;
+}

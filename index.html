@@ -4,38 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Open+Sans:400,400i,700" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/application.css" rel="stylesheet">
     <title>These Are A Few of My Favorite Things</title>
   </head>
   <body>
     <div class="body-container">
       <header class="banner" role="banner">
-        <div class="profile-container flex">
-          <img  class="profile-pic" src="images/Sheryl.jpg" alt="profile photo of Sheryl Darroch">
+         <img  class="profile-pic" src="images/Sheryl.jpg" alt="profile photo of Sheryl Darroch">
+         <div class="profile-container flex">
           <div class="profile-intro">
             <span>Hi, I'm Sheryl Darroch. Looking for some great music or a good movie? Feel free to take a look around.</span>
           </div>
+          <h1 class="heading">These Are a Few of My Favorite Things . . .</h1>
         </div>
-        <h1 class="heading">These Are a Few of My Favorite Things . . .</h1>
+        
       </header>
       <div class="main-container" role="main">
-        <div class="content">
-          <h2 class="title">Music</h2>
-          <span class="sub-title" id="sub-title-m">Choose one of my favorite artists to see a list of their albums.</span>
-          <ul class="selectors selectors-m flex">
-            <li aria-labelledby="sub-title-m" id="btn-m-1"><button>Casting Crowns</button></li>
-            <li aria-labelledby="sub-title-m" id="btn-m-2"><button>Addison Road</button></li>
-            <li aria-labelledby="sub-title-m" id="btn-m-3"><button>Third Day</button></li>            
-          </ul>
-          <div class="photos flex" id="photos-m">
-          </div> <!-- end #photos-m -->
-          <div class="lightbox" id="lightbox-m">
-          </div> <!-- end #lightbox-m -->
-        </div> <!-- end .content -->
-        
+              
         <div class="content">
           <h2 class="title">Movies</h2>
-          <span class="sub-title" id="sub-title-b">Sort my favorite movies alphabetically by<button id="btn-name">Name</button></span>
 
           <div class="photos flex" id="photos-b">
             <div class="movie-thumb">
@@ -96,8 +83,23 @@
               </div>
             </div>  
           </div>  
-        </div> <!-- end .content -->
 
+          <span class="sub-title" id="sub-title-b"><button id="btn-name">Sort my favorite movies alphabetically by name</button></span>
+
+        </div> <!-- end .content -->
+        <div class="content content-music">
+          <h2 class="title">Music</h2>
+          <span class="sub-title" id="sub-title-m">Choose one of my favorite artists to see a list of their albums.</span>
+          <ul class="selectors selectors-m flex">
+            <li aria-labelledby="sub-title-m" class="btn-m" ><button id="btn-m-1">Casting Crowns</button></li>
+            <li aria-labelledby="sub-title-m" class="btn-m"><button  id="btn-m-2">Addison Road</button></li>
+            <li aria-labelledby="sub-title-m" class="btn-m" ><button id="btn-m-3">Third Day</button></li>            
+          </ul>
+          <div class="photos flex" id="photos-m">
+          </div> <!-- end #photos-m -->
+          <div class="lightbox" id="lightbox-m">
+          </div> <!-- end #lightbox-m -->
+        </div> <!-- end .content -->
       </div> <!-- end .main-container -->
     </div> <!-- end .body-container -->
     <footer role="contentinfo">

@@ -1,0 +1,53 @@
+/*** Banner Styling ***/
+.banner {
+  border-bottom: solid 0.313em $cannon-pink;
+  max-height: 12em;
+  display: flex;
+  justify-content: space-around;
+  @include bp(large) {
+    max-height: 15em;  
+  }
+}
+
+.profile-container {
+  @include flex(column, space-around, center);
+}
+
+.profile-pic {
+  @include size(5em, 5em);
+  @include margin(0.625em, null);
+  min-width: 5em;
+  min-height: 5em;
+  border-radius: 50%;
+  border: solid 0.063em $cannon-pink;
+  box-shadow: 0.125em 0.125em 0.125em 0.125em lighten($cannon-pink, 50%);
+  text-align: center;
+  @include bp(medium) {
+    @include size(10em, 10em);
+    margin-top: 1em;
+    margin-left: 1em;
+    box-shadow: 0.25em 0.25em 0.25em 0.25em rgba(135, 76, 98, 0.5);
+  }
+  @include bp(large) {
+    @include size(12em, 12em);
+    box-shadow: 0.375em 0.375em 0.125em 0.375em rgba(135, 76, 98, 0.5);  
+  }
+}
+
+.profile-intro {
+  @include margin(0.313em, null);
+  text-align: center;
+  @include bp(medium) {
+     margin: 0.938em;
+  }
+  @include bp(large) {
+    font-size: 1.5em;  
+  }
+}
+
+.heading {
+  text-align: center;
+  @include bp(large) {
+    font-size: 3.5em;  
+  }
+}

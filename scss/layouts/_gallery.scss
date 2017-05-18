@@ -1,0 +1,129 @@
+/**** Gallery Styling****/
+
+.content {
+  @include margin(null, 0.625em);
+  @include bp(medium) {
+    padding: 0.938em;
+    text-align: center;    
+  }
+}
+
+.content-music {
+  border-top:  solid 0.313em $cannon-pink;
+  border-bottom: solid 0.313em $cannon-pink;
+}
+
+.title {
+  @include bp(medium) {
+    margin: 0;
+    padding-bottom: 0.313em;  
+  }
+}
+
+.selectors {
+  @include margin(null, 0);
+  @include flex(column, null, center);
+  @include bp(medium) {
+     @include flex(row, space-around, center);
+  }
+}
+
+.selectors li {
+  list-style: none;
+  list-style-position: inside;
+  @include bp(medium) {
+    font-size: 1.25em;  
+  }
+}
+
+.selectors li button,
+#btn-name { 
+  @include margin(0.313em, 0.625em);
+  background-color: $jet-stream;
+  color: $cannon-pink;
+  font-size: .75em;
+  font-weight: bold;
+  border-radius: 0.313em;
+  border: solid 0.125em $cannon-pink;
+  box-shadow: 0.25em 0.25em 0.125em #999;
+  transition: all 0.5s ease;
+  @include bp(medium) {
+     padding: 1em;
+  }
+}
+
+#btn-name {
+  @include margin(1em, 0.175em 0.313em);
+  @include bp(medium) {
+    padding: 0.313em 0.625em;  
+  }
+  @include bp(large) {
+    padding: 0.625em 0.9em;  
+  }
+}
+
+.selectors li button:hover,
+.selectors li button:focus,
+#btn-name:hover,
+#btn-name:focus {
+  background-color: $cannon-pink;
+  color: $champagne;
+}
+
+.photos {
+  @include flex(row, space-around, center);
+  @include margin(null, 0.625em);
+  background-color: $champagne;
+  border: solid 0.125em $cannon-pink;
+  box-shadow: 0.25em 0.25em 0.125em #999;
+  border-radius: 0.313em;
+  flex-wrap: wrap;
+  @include bp(medium) {
+    margin-left: auto;
+    margin-right: auto;  
+  }
+}
+
+#photos-m {
+  display: none;
+}
+
+#photos-b {
+  margin-top: 0.313em;
+}
+
+.column,
+.movie-thumb{
+  @include margin(0.25em, 0.938em);
+  background: $jet-stream;
+  border-radius: 0.313em;
+}
+
+.column img {
+  @include size(3.75em, 3.75em);
+  @include bp(medium) {
+    @include size(6em, 6em);    
+  }
+  @include bp(large) {
+    @include size(8em, 8em);  
+  }
+}
+
+.movies {
+  @include size(3.75em, 5.75em);
+  @include bp(medium) {
+    @include size(6em, 9em);  
+  }
+  @include bp(large) {
+    @include size(8em, 12em);  
+  }
+}
+
+.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.2), 0 0.375em 1.25em 0 rgba(0, 0, 0, 0.19);
+}
+

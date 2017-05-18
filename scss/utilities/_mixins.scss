@@ -1,0 +1,31 @@
+// Media Query Mixin
+
+@mixin bp($point) {
+  @if $point == medium {
+    @media screen and (min-width: $bp-medium) { @content; }
+  } @else if $point == large {
+    @media screen and (min-width: $bp-large) { @content; }
+  }
+}
+
+// Flexbox Mixin
+
+@mixin flex($direction, $justify, $align) {
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Size Mixin
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// Margin Mixin
+
+@mixin margin($margin, $padding) {
+  margin: $margin;
+  padding: $padding;
+}
